@@ -33,7 +33,6 @@ mason_lspconfig.setup({
   automatic_installation = true, -- not the same as ensure_installed
 })
 
--- TODO:
 mason_null_ls.setup({
   -- list of formatters & linters for mason to install
   ensure_installed = {
