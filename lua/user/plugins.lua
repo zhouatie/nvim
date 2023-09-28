@@ -117,6 +117,11 @@ return packer.startup(function(use)
 
 	use({ "simrat39/symbols-outline.nvim" })
 
+	use({ "nvim-pack/nvim-spectre" })
+
+	-- 折叠展开区块
+	-- use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

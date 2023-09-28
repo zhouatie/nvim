@@ -51,9 +51,23 @@ keymap("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go t
 keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabn
 
+-- 全局替换 <leader>R 全局替换 <leader>rc 替换当前光标所在行的匹配项目
+-- <cr>：跳到该匹配项的原文件位置 <leader>q：将所有匹配项发送到quickfix中
+vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
+	desc = "Toggle Spectre",
+})
+vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+	desc = "Search current word",
+})
+vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+	desc = "Search current word",
+})
+vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+	desc = "Search on current file",
+})
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 
@@ -80,4 +94,3 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
