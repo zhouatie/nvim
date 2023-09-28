@@ -161,7 +161,7 @@ local mappings = {
   },
   
   o = {
-    "<cmd>AerialToggle!<cr>", "Outline"
+    "<cmd>SymbolsOutline<CR>", "Outline"
   },
 
   s = {
