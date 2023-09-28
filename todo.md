@@ -7,7 +7,7 @@
 - [] litee.nvim litee-calltree.nvim 调用链
 - [] accelerated-jk非线性滚动
 - [] git 一些操作不太会用, 还有下一个hunk之类的快捷键都不会
-- [] 全局替换
+- [] 全局替换, 单个单词替换
 - [] 安装 christoomey/vim-tmux-navigator，在家里貌似网不行
 
 

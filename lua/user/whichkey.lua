@@ -159,6 +159,11 @@ local mappings = {
       "Workspace Symbols",
     },
   },
+  
+  o = {
+    "<cmd>AerialToggle!<cr>", "Outline"
+  },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
