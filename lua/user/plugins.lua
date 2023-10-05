@@ -119,6 +119,11 @@ return packer.startup(function(use)
 
 	use({ "nvim-pack/nvim-spectre" })
 
+	-- use("ldelossa/litee.nvim")
+	-- use("ldelossa/litee-calltree.nvim")
+
+	use("folke/flash.nvim")
+	-- use("justinmk/vim-sneak")
 	-- 折叠展开区块
 	-- use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 

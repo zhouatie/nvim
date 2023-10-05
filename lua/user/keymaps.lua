@@ -66,6 +66,11 @@ vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search(
 	desc = "Search on current file",
 })
 
+-- 快速跳转 选择标记之后，还可以按ctrl + o 跳回之前的光标点位
+-- vim.keymap.set("n", "<leader>ss", '<cmd>lua require("flash").jump()<CR>', {
+-- 	desc = "quick search",
+-- })
+
 -- Insert --
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
