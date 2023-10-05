@@ -45,13 +45,14 @@ keymap("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- s
 keymap("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
+-- tab 相关
 keymap("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabn
 
--- 全局替换 <leader>R 全局替换 <leader>rc 替换当前光标所在行的匹配项目
+-- <leader>S 呼起全局替换 <leader>R 全局替换 <leader>rc 替换当前光标所在行的匹配项目
 -- <cr>：跳到该匹配项的原文件位置 <leader>q：将所有匹配项发送到quickfix中
 vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
 	desc = "Toggle Spectre",
