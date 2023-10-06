@@ -1,3 +1,4 @@
+-- 修改 dashboard 封面图
 return {
   {
     "goolord/alpha-nvim",
