@@ -7,3 +7,4 @@
 <leader>sR Resume
 <leader>ss Goto Symbol
 lazyvim dap 调试
+保存会格式化，格式化是根据什么配置格式化的

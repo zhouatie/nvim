@@ -24,4 +24,4 @@ end
 
 map("i", "jk", "<Esc>", { desc = "to normal mode" })
 map("n", "<leader>ge", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "chatgpt" })
--- map({ "n", "i" }, "jkl", "<cmd>w<cr><esc>", { desc = "save" })
+map({ "i" }, "jkl", "<cmd>w<cr><esc>", { desc = "save" })
