@@ -23,5 +23,5 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("i", "jk", "<Esc>", { desc = "to normal mode" })
-map("n", "<leader>ge", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "chatgpt" })
+-- map("n", "<leader>ge", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "chatgpt" })
 map({ "i" }, "jkl", "<cmd>w<cr><esc>", { desc = "save" })

@@ -5,5 +5,6 @@
 <leader>sm Jump to Mark
 <leader>so Options
 <leader>sR Resume
-lazyvim dap 调试
 代码补全需要处理下，现在html没有自动补全
+
+自动切换中文输入法
