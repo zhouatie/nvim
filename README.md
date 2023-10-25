@@ -1,4 +1,3 @@
-# 💤 LazyVim
+# 💤 我的neovim配置
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+通过基本就是用的lazyVim，然后自己定制了alpha，bg，格式化等
