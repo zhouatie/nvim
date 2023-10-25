@@ -1,4 +1,3 @@
--- 重置prettier
 return {
   -- {
   --   "williamboman/mason.nvim",
@@ -39,22 +38,6 @@ return {
         ["markdown.mdx"] = { "prettier" },
         ["graphql"] = { "prettier" },
         ["handlebars"] = { "prettier" },
-        --   -- ["javascript"] = { { "prettierd", "prettier" } },
-        --   -- ["javascriptreact"] = { { "prettierd", "prettier" } },
-        --   -- ["typescript"] = { { "prettierd", "prettier" } },
-        --   -- ["typescriptreact"] = { { "prettierd", "prettier" } },
-        --   -- ["vue"] = { { "prettierd", "prettier" } },
-        --   ["css"] = { { "prettierd", "prettier" } },
-        --   ["scss"] = { { "prettierd", "prettier" } },
-        --   ["less"] = { { "prettierd", "prettier" } },
-        --   ["html"] = { { "prettierd", "prettier" } },
-        --   ["json"] = { { "prettierd", "prettier" } },
-        --   ["jsonc"] = { { "prettierd", "prettier" } },
-        --   ["yaml"] = { { "prettierd", "prettier" } },
-        --   ["markdown"] = { { "prettierd", "prettier" } },
-        --   ["markdown.mdx"] = { { "prettierd", "prettier" } },
-        --   ["graphql"] = { { "prettierd", "prettier" } },
-        --   ["handlebars"] = { { "prettierd", "prettier" } },
       },
     },
   },
