@@ -25,3 +25,7 @@ end
 map("i", "jk", "<Esc>", { desc = "to normal mode" })
 -- map("n", "<leader>ge", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "chatgpt" })
 map({ "i" }, "jkl", "<cmd>w<cr><esc>", { desc = "save" })
+
+map("n", "<leader>ub", "<cmd>lua require('gitsigns').toggle_current_line_blame()<CR>", {
+  desc = "Toggle current line blame",
+})

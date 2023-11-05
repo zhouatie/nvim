@@ -56,3 +56,6 @@ require("lazy").setup({
     },
   },
 })
+
+-- 初始化，就启动line_blame
+require("gitsigns").toggle_current_line_blame()
