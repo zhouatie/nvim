@@ -104,16 +104,25 @@ return {
   },
 
   -- neogit
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
+  -- {
+  --   "NeogitOrg/neogit",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim", -- required
+  --     "sindrets/diffview.nvim", -- optional - Diff integration
+  --
+  --     -- Only one of these is needed.
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --     "ibhagwan/fzf-lua", -- optional
+  --     "echasnovski/mini.pick", -- optional
+  --   },
+  -- },
 
-      -- Only one of these is needed.
-      "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua", -- optional
-      "echasnovski/mini.pick", -- optional
-    },
+  {
+    "b0o/incline.nvim",
+    config = function()
+      require("incline").setup()
+    end,
+    -- Optional: Lazy load Incline
+    event = "VeryLazy",
   },
 }
