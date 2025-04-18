@@ -60,6 +60,7 @@ return {
           -- ["markdown.mdx"] = { "prettier" },
           ["graphql"] = { "prettierd", "eslint_d" },
           ["handlebars"] = { "prettierd", "eslint_d" },
+          ["toml"] = { "prettierd" },
           ["lua"] = { "stylua" },
         },
       }
