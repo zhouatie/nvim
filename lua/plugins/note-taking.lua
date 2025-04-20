@@ -36,6 +36,7 @@ return {
 
       -- 补全
       completion = {
+        -- nvim_cmp = true,
         -- Set to false to disable completion.
         blink = true,
         -- Trigger completion at 2 chars.
@@ -175,7 +176,7 @@ return {
 
         -- Window settings
         window = {
-          width = 55, -- Width of the floating window
+          width = 85, -- Width of the floating window
           height = 20, -- Height of the floating window
           border = "rounded", -- Border style
           position = "center", -- Window position: 'right', 'left', 'top', 'bottom', 'center',
