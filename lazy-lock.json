@@ -45,6 +45,7 @@
   "neoconf.nvim": { "branch": "main", "commit": "114aa200d636dd62fb5ec2323f2c291d6168128b" },
   "neogen": { "branch": "main", "commit": "05d754004da8c89115b291f2a23ca530a8cac8fd" },
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
+  "note2cal.nvim": { "branch": "main", "commit": "ddf9460a58c805fab38ba0a9d67a74e689a4b3c7" },
   "nui.nvim": { "branch": "main", "commit": "8d3bce9764e627b62b07424e0df77f680d47ffdb" },
   "nvim-lint": { "branch": "master", "commit": "d698d3b6fd7b1b85657d05a2a31d843ddb682c63" },
   "nvim-lspconfig": { "branch": "master", "commit": "32b6a6449aaba11461fffbb596dd6310af79eea4" },
@@ -73,5 +74,5 @@
   "vim-startuptime": { "branch": "master", "commit": "b6f0d93f6b8cf6eee0b4c94450198ba2d6a05ff6" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "yanky.nvim": { "branch": "main", "commit": "04775cc6e10ef038c397c407bc17f00a2f52b378" },
-  "yazi.nvim": { "branch": "main", "commit": "9cd76f5eab7cd7df636a2c737bd6b64819e05505" }
+  "yazi.nvim": { "branch": "main", "commit": "099f0fb9f9f3ca379ca00fcaae318fc4514fc013" }
 }

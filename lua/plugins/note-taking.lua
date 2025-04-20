@@ -166,7 +166,7 @@ return {
     config = function()
       require("dooing").setup({
         -- your custom config here (optional)
-        save_path = "/Users/zhoushitie/todos.json",
+        save_path = "/Users/zhoushitie/vaults/personal/.todos",
 
         -- Timestamp settings
         timestamp = {
@@ -288,6 +288,25 @@ return {
         hour_score_value = 1 / 8,
       })
     end,
+  },
+
+  {
+    "lfilho/note2cal.nvim",
+    config = function()
+      require("note2cal").setup({
+        debug = false, -- if true, prints a debug message an return early (won't schedule events)
+        calendar_name = "zhouatie@gmail.com", -- the name of the calendar as it appear on Calendar.app
+        highlights = {
+          at_symbol = "WarningMsg", -- the highlight group for the "@" symbol
+          at_text = "Number", -- the highlight group for the date-time part
+        },
+        keymaps = {
+          normal = "<Leader>se", -- mnemonic: Schedule Event
+          visual = "<Leader>se", -- mnemonic: Schedule Event
+        },
+      })
+    end,
+    ft = "markdown",
   },
 
   {
