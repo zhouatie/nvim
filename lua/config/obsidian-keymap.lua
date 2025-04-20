@@ -46,7 +46,18 @@ function M.setup()
   end, { desc = "插入模板" })
 
   -- Commands without parameters or optional parameters
-  map("n", "<leader>od", "<cmd>ObsidianToday<cr>", { desc = "打开今日笔记" })
+  -- map("n", "<leader>od", "<cmd>ObsidianToday<cr>", { desc = "打开今日笔记" })
+
+  map("n", "<leader>od", function()
+    vim.ui.input({ prompt = "offset: " }, function(input)
+      if input and input ~= "" then
+        vim.cmd("ObsidianToday " .. input)
+      else
+        vim.cmd("ObsidianToday")
+      end
+    end)
+  end, { desc = "打开今日笔记" })
+
   map("n", "<leader>os", function()
     vim.ui.input({ prompt = "Search query (optional): " }, function(input)
       if input and input ~= "" then
