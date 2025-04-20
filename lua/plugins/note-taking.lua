@@ -9,6 +9,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "saghen/blink.cmp",
+      "MeanderingProgrammer/render-markdown.nvim",
       -- see below for full list of optional dependencies 👇
     },
     opts = {
@@ -165,7 +166,7 @@ return {
     config = function()
       require("dooing").setup({
         -- your custom config here (optional)
-        save_path = "/Users/zhoushitie/vaults/personal/dooing_todos.json",
+        save_path = "/Users/zhoushitie/todos.json",
 
         -- Timestamp settings
         timestamp = {
