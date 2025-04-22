@@ -12,6 +12,8 @@ return {
       require("render-markdown").setup({})
     end,
   },
+
+  -- 酷炫光标
   {
     "sphamba/smear-cursor.nvim",
     opts = {
@@ -24,7 +26,8 @@ return {
       legacy_computing_symbols_support = true,
     },
   },
-  --- git-blame
+
+  --- git-blame git 行 提交信息
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
@@ -40,7 +43,7 @@ return {
     end,
   },
 
-  ---@type LazySpec
+  -- yazi
   {
     "mikavilpas/yazi.nvim",
     event = "VeryLazy",
@@ -85,6 +88,7 @@ return {
     end,
   },
 
+  -- 右上角文件标签
   {
     "b0o/incline.nvim",
     config = function()
