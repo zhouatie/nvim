@@ -174,7 +174,8 @@ return {
   },
 
   {
-    "atiladefreitas/dooing",
+    -- "atiladefreitas/dooing",
+    dir = "~/.config/nvim/clone/dooing",
     config = function()
       require("dooing").setup({
         -- your custom config here (optional)
