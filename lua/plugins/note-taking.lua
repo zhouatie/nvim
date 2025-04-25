@@ -179,7 +179,7 @@ return {
     config = function()
       require("dooing").setup({
         -- your custom config here (optional)
-        save_path = "/Users/zhoushitie/vaults/personal/.todos",
+        save_path = "/Users/zhoushitie/vaults/personal/.todos.json",
 
         -- Timestamp settings
         timestamp = {
