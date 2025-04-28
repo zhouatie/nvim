@@ -179,8 +179,8 @@ return {
         config = function()
             require("dooing").setup({
                 -- your custom config here (optional)
-                -- save_path = "/Users/zhoushitie/vaults/personal/.todos.json",
-                save_path = "/Users/zhoushitie/.config/nvim/todos.json",
+                save_path = "/Users/zhoushitie/vaults/personal/.todos.json",
+                -- save_path = "/Users/zhoushitie/.config/nvim/todos.json",
 
                 -- Timestamp settings
                 timestamp = {
@@ -256,6 +256,7 @@ return {
                     export_todos = "E",
                     remove_duplicates = "<leader>D",
                     open_todo_scratchpad = "<leader>p",
+                    refresh_todos = "f",
                 },
 
                 calendar = {

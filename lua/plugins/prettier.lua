@@ -60,15 +60,16 @@ return {
                 ["sass"] = { "prettierd", "eslint_d" },
                 ["less"] = { "prettierd", "eslint_d" },
                 ["html"] = { "prettierd", "eslint_d" },
-                ["json"] = { "prettierd" },
-                ["jsonc"] = { "prettierd" },
+                ["json"] = { "prettier" },
+                ["jsonc"] = { "prettier" },
                 ["yaml"] = { "prettierd" },
                 -- ["markdown"] = { "prettier" },
                 -- ["markdown.mdx"] = { "prettier" },
                 ["graphql"] = { "prettierd", "eslint_d" },
                 ["handlebars"] = { "prettierd", "eslint_d" },
                 ["toml"] = { "prettierd" },
-                ["lua"] = { "prettierd" },
+                ["lua"] = { "stylua" },
+                python = { "isort", "black" },
             }
 
             -- 合并我们的自定义配置与现有配置
