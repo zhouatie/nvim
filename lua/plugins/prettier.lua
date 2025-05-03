@@ -41,6 +41,8 @@ return {
             opts.formatters.prettierd = vim.tbl_deep_extend("force", opts.formatters.prettierd or {}, {
                 -- 如果项目没有配置，则使用全局配置
                 prepend_args = has_project_config and {} or { "--config", fallback_config },
+                -- 添加stdin参数，确保只处理单个文件
+                stdin = true,
             })
 
             opts.formatters.prettier = vim.tbl_deep_extend("force", opts.formatters.prettier or {}, {
