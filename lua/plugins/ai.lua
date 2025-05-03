@@ -2,6 +2,7 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    -- version = false,
     commit = "f9aa75459d403d9e963ef2647c9791e0dfc9e5f9",
     -- version = "*", -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
     opts = {
