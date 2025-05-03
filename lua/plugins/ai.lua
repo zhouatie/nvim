@@ -2,28 +2,36 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+    commit = "f9aa75459d403d9e963ef2647c9791e0dfc9e5f9",
+    -- version = "*", -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
     opts = {
       provider = "copilot",
 
       copilot = {
         model = "claude-3.7-sonnet",
         -- model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-        endpoint = "https://api.githubcopilot.com",
+        -- endpoint = "https://api.githubcopilot.com",
         allow_insecure = false,
         timeout = 10 * 60 * 1000,
         temperature = 0,
-        max_completion_tokens = 1000000,
+        -- 8192
+        max_completion_tokens = 80000,
+        max_tokens = 80000,
         reasoning_effort = "high",
       },
 
       behaviour = {
         enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
         enable_claude_text_editor_tool_mode = true, -- Whether to enable Claude Text Editor Tool Mode.
+        enable_token_counting = false,
       },
 
       windows = {
         width = 40,
+        input = {
+          prefix = "",
+          height = 12, -- Height of the input window in vertical layout
+        },
       },
 
       -- ollama = {
