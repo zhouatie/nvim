@@ -8,6 +8,12 @@ return {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       },
+      -- 禁用 markdown 文件的拼写检查
+      ft_opts = {
+        markdown = {
+          spell = false, -- 对 markdown 文件禁用拼写检查
+        }
+      },
     },
   },
 
