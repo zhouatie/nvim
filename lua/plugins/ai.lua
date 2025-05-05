@@ -1,3 +1,8 @@
+-- 设置 Avante 相关快捷键
+vim.keymap.set("n", "<leader>an", function()
+  vim.cmd("AvanteChatNew")
+end, { desc = "AvanteChatNew" })
+
 local function tokens(num)
   return num * 1024
 end
