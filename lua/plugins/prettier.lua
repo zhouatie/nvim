@@ -37,6 +37,15 @@ return {
       opts.formatters = opts.formatters or {}
       opts.formatters_by_ft = opts.formatters_by_ft or {}
 
+      -- 注意：不要在这里设置 opts.format_on_save，LazyVim 会自动使用 conform 格式化器
+      
+      -- 设置全局格式化参数，确保使用异步模式 (使用新的配置选项)
+      opts.default_format_opts = vim.tbl_deep_extend("force", opts.default_format_opts or {}, {
+        async = true,
+        timeout_ms = 3000,
+        lsp_fallback = true,
+      })
+
       -- 配置 Prettier 格式化器
       opts.formatters.prettierd = vim.tbl_deep_extend("force", opts.formatters.prettierd or {}, {
         -- 如果项目没有配置，则使用全局配置
