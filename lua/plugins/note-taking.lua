@@ -339,6 +339,7 @@ return {
     ft = "markdown",
   },
 
+  -- 画图
   {
     "jbyuki/venn.nvim",
   },
