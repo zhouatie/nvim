@@ -110,24 +110,6 @@ return {
             skipFiles = { "<node_internals>/**" },
             console = "integratedTerminal",
           },
-          -- 调试项目(从package.json的启动脚本)
-          {
-            type = "pwa-node",
-            request = "launch",
-            name = "运行 npm start",
-            runtimeExecutable = "npm",
-            runtimeArgs = { "start" },
-            cwd = "${workspaceFolder}",
-            sourceMaps = true,
-            outFiles = { "${workspaceFolder}/{dist,build,out}/**/*.js" },
-            resolveSourceMapLocations = {
-              "${workspaceFolder}/{dist,build,out}/**/*.js",
-              "${workspaceFolder}/**/*.{ts,tsx,js,jsx}",
-              "!**/node_modules/**",
-            },
-            skipFiles = { "<node_internals>/**" },
-            console = "integratedTerminal",
-          },
           -- 附加到已运行的进程
           {
             type = "pwa-node",
@@ -136,9 +118,9 @@ return {
             processId = require("dap.utils").pick_process,
             cwd = "${workspaceFolder}",
             sourceMaps = true,
-            outFiles = { "${workspaceFolder}/{dist,build,out}/**/*.js" },
+            outFiles = { "${workspaceFolder}/{dist,build,out,public}/**/*.js" },
             resolveSourceMapLocations = {
-              "${workspaceFolder}/{dist,build,out}/**/*.js",
+              "${workspaceFolder}/{dist,build,out,public}/**/*.js",
               "${workspaceFolder}/**/*.{ts,tsx,js,jsx}",
               "!**/node_modules/**",
             },
@@ -146,32 +128,55 @@ return {
           },
         }
       end
+
       -- chrome 支持
-      dap.configurations.javascriptreact = { -- change this to javascript if needed
+      local chrome_debug_config = {
         {
-          type = "chrome",
-          request = "attach",
-          program = "${file}",
-          cwd = vim.fn.getcwd(),
+          type = "pwa-chrome",
+          request = "launch",
+          name = "启动Chrome（launch）",
+          url = "about:blank", -- 启动时打开空白页，然后手动输入URL
+          webRoot = "${workspaceFolder}",
           sourceMaps = true,
-          protocol = "inspector",
+          -- userDataDir = false,
+          userDataDir = function()
+            return "/Users/zhoushitie/Desktop/work/.chrome-debug-userData"
+          end,
+          runtimeExecutable = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+          -- runtimeArgs = { "--incognito" }, -- 启动无痕模式
+          sourceMapPathOverrides = {
+            -- 适用于大多数构建工具
+            ["webpack:///./*"] = "${webRoot}/*",
+            ["webpack:///src/*"] = "${webRoot}/src/*",
+            ["webpack:///node_modules/*"] = "${webRoot}/node_modules/*",
+            ["*://engine/*"] = "${workspaceFolder}/engine/*",
+            ["*://game/*"] = "${workspaceFolder}/*",
+          },
+          skipFiles = { "<node_internals>/**" },
+        },
+        -- 连接到已运行的 Chrome 实例 (attach 模式)
+        {
+          type = "pwa-chrome",
+          request = "attach",
+          name = "连接到已运行的 Chrome",
           port = 9222,
           webRoot = "${workspaceFolder}",
+          sourceMaps = true,
+          sourceMapPathOverrides = {
+            ["webpack:///./*"] = "${webRoot}/*",
+            ["webpack:///src/*"] = "${webRoot}/src/*",
+            ["webpack:///node_modules/*"] = "${webRoot}/node_modules/*",
+            ["*://engine/*"] = "${workspaceFolder}/engine/*",
+            ["*://game/*"] = "${workspaceFolder}/*",
+          },
+          skipFiles = { "<node_internals>/**" },
         },
       }
 
-      dap.configurations.typescriptreact = { -- change to typescript if needed
-        {
-          type = "chrome",
-          request = "attach",
-          program = "${file}",
-          cwd = vim.fn.getcwd(),
-          sourceMaps = true,
-          protocol = "inspector",
-          port = 9222,
-          webRoot = "${workspaceFolder}",
-        },
-      }
+      -- 为所有支持前端调试的语言提供同样的 Chrome 配置
+      for _, lang in ipairs({ "javascript", "typescript", "javascriptreact", "typescriptreact", "vue" }) do
+        dap.configurations[lang] = vim.list_extend(dap.configurations[lang] or {}, chrome_debug_config)
+      end
     end,
   },
 
