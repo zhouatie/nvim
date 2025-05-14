@@ -91,14 +91,14 @@ return {
         },
       },
 
-      rag_service = {
-        enabled = true, -- Enables the RAG service
-        host_mount = os.getenv("HOME"), -- Host mount path for the rag service
-        provider = "ollama", -- The provider to use for RAG service (e.g. openai or ollama)
-        llm_model = "qwen2.5-coder:14b", -- The LLM model to use for RAG service
-        embed_model = "nomic-embed-text", -- The embedding model to use for RAG service
-        endpoint = "http://localhost:11434", -- The API endpoint for RAG service
-      },
+      -- rag_service = {
+      --   enabled = true, -- Enables the RAG service
+      --   host_mount = os.getenv("HOME"), -- Host mount path for the rag service
+      --   provider = "ollama", -- The provider to use for RAG service (e.g. openai or ollama)
+      --   llm_model = "qwen2.5-coder:14b", -- The LLM model to use for RAG service
+      --   embed_model = "nomic-embed-text", -- The embedding model to use for RAG service
+      --   endpoint = "http://localhost:11434", -- The API endpoint for RAG service
+      -- },
     },
     build = "make",
     dependencies = {
