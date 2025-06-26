@@ -9,11 +9,15 @@ local js_based_languages = {
 return {
   {
     "mfussenegger/nvim-dap",
-    -- dependencies = {
-    --   -- "theHamsta/nvim-dap-virtual-text",
-    -- },
+    dependencies = {
+      "theHamsta/nvim-dap-virtual-text",
+    },
     config = function()
       local dap = require("dap")
+
+      require("nvim-dap-virtual-text").setup({
+        clear_on_continue = true,
+      })
 
       -- 设置更美观的调试图标
       vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
@@ -187,7 +191,19 @@ return {
       -- make sure you don't have any other keymaps that starts with "<leader>d" to avoid delay
       vim.keymap.set({ "n", "v" }, "<leader>d", dm.mode.toggle, { nowait = true })
       vim.keymap.set("t", "<C-/>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+      -- 设置 dCursor 高亮并确保不被 colorscheme 覆盖
       vim.api.nvim_set_hl(0, "dCursor", { bg = "#FF2C2C" })
+
+      -- 创建自动命令组，确保高亮在 colorscheme 变更后仍然生效
+      local augroup = vim.api.nvim_create_augroup("DapHighlightFix", { clear = true })
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        group = augroup,
+        callback = function()
+          vim.api.nvim_set_hl(0, "dCursor", { bg = "#FF2C2C" })
+        end,
+        desc = "保持 dCursor 高亮不被 colorscheme 覆盖",
+      })
+      dm.plugins.ui_auto_toggle.enabled = false
     end,
   },
 }

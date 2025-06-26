@@ -17,25 +17,33 @@ return {
     end,
   },
 
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "catppuccin-mocha",
-  --   },
-  -- },
-
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
+    "LazyVim/LazyVim",
     opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
+      colorscheme = "catppuccin-mocha",
     },
   },
+
+  -- {
+  --   "rose-pine/neovim",
+  --   name = "rose-pine-moon",
+  --   config = function()
+  --     vim.cmd("colorscheme rose-pine-moon")
+  --   end,
+  -- },
+
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  -- },
 
   {
     "nvim-neo-tree/neo-tree.nvim",
