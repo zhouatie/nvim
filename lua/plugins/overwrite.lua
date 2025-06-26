@@ -20,17 +20,17 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "rose-pine-moon",
     },
   },
 
-  -- {
-  --   "rose-pine/neovim",
-  --   name = "rose-pine-moon",
-  --   config = function()
-  --     vim.cmd("colorscheme rose-pine-moon")
-  --   end,
-  -- },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine-moon",
+    config = function()
+      vim.cmd("colorscheme rose-pine-moon")
+    end,
+  },
 
   -- {
   --   "folke/tokyonight.nvim",
