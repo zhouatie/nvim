@@ -112,7 +112,7 @@ return {
       },
 
       ui = {
-        enable = false, -- set to false to disable all additional syntax features
+        enable = false, -- 因为已经用上了 `render-markdown.nvim`，所以不需要再启用 Obsidian 的 UI
         -- update_debounce = 200, -- update delay after a text change (in milliseconds)
         -- max_file_length = 5000, -- disable UI features for files with more than this many lines
         -- Define how various check-boxes are displayed

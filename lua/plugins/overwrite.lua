@@ -18,18 +18,22 @@ return {
   },
 
   {
+    "rose-pine/neovim",
+    name = "rose-pine-moon",
+    config = function()
+      require("rose-pine").setup({
+        styles = {
+          -- transparency = true, -- 启用透明背景
+        },
+      })
+    end,
+  },
+
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "rose-pine-moon",
     },
-  },
-
-  {
-    "rose-pine/neovim",
-    name = "rose-pine-moon",
-    config = function()
-      vim.cmd("colorscheme rose-pine-moon")
-    end,
   },
 
   -- {

@@ -30,7 +30,6 @@ return {
     cmd = { "RenderMarkdown" },
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
     config = function()
-      require("obsidian").get_client().opts.ui.enable = false
       local ns = vim.api.nvim_get_namespaces()["ObsidianUI"]
       if ns then
         vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
