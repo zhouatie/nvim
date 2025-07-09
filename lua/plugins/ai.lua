@@ -1,8 +1,3 @@
--- 设置 Avante 相关快捷键
-vim.keymap.set("n", "<leader>an", function()
-  vim.cmd("AvanteChatNew")
-end, { desc = "AvanteChatNew" })
-
 local function tokens(num)
   return num * 1024
 end
@@ -11,6 +6,7 @@ return {
   {
     -- dir = "~/.config/nvim/clone/avante.nvim",
     "yetone/avante.nvim",
+    enabled = false,
     event = "VeryLazy",
     -- version = false,
     commit = "f9aa75459d403d9e963ef2647c9791e0dfc9e5f9",
