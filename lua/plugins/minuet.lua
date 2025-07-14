@@ -29,8 +29,23 @@ return {
   --             top_p = 0.9,
   --           },
   --         },
-  --       },
   --
+  --         claude = {
+  --           max_tokens = 512,
+  --           model = "claude-3-5-haiku-20241022",
+  --           -- system = "see [Prompt] section for the default value",
+  --           -- few_shots = "see [Prompt] section for the default value",
+  --           -- chat_input = "See [Prompt Section for default value]",
+  --           stream = true,
+  --           api_key = "ANTHROPIC_API_KEY",
+  --           end_point = "https://gaccode.com/claudecode/v1/completions",
+  --           optional = {
+  --             -- pass any additional parameters you want to send to claude request,
+  --             -- e.g.
+  --             -- stop_sequences = nil,
+  --           },
+  --         },
+  --       },
   --       virtualtext = {
   --         auto_trigger_ft = { "*" },
   --         keymap = {
