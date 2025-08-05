@@ -28,6 +28,53 @@ return {
   --   end,
   -- },
   {
+    "aserowy/tmux.nvim",
+    keys = {
+      {
+        "<C-h>",
+        function()
+          require("tmux").move_left()
+        end,
+        desc = "Move to left pane",
+      },
+      {
+        "<C-j>",
+        function()
+          require("tmux").move_bottom()
+        end,
+        desc = "Move to bottom pane",
+      },
+      {
+        "<C-k>",
+        function()
+          require("tmux").move_top()
+        end,
+        desc = "Move to top pane",
+      },
+      {
+        "<C-l>",
+        function()
+          require("tmux").move_right()
+        end,
+        desc = "Move to right pane",
+      },
+    },
+    config = function()
+      require("tmux").setup({
+        copy_sync = {
+          enable = true,
+        },
+        navigation = {
+          enable_default_keybindings = false, -- 禁用默认键绑定，使用我们自定义的
+        },
+        resize = {
+          enable_default_keybindings = true,
+        },
+      })
+    end,
+  },
+
+  {
     "sontungexpt/url-open",
     event = "VeryLazy",
     cmd = "URLOpenUnderCursor",
