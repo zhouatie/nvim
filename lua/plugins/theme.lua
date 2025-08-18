@@ -7,6 +7,11 @@ return {
         styles = {
           transparency = true, -- 启用透明背景
         },
+        highlight_groups = {
+          CursorLine = { bg = "base", blend = 10 },
+          Visual = { bg = "rose", blend = 20 }, -- 可视模式选中背景
+          VisualNOS = { bg = "rose", blend = 20 }, -- 非拥有选择的可视模式
+        },
       })
     end,
   },
