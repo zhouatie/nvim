@@ -38,6 +38,7 @@
   "mini.nvim": { "branch": "main", "commit": "6a224ddd28b4b21a488d6d87e1c2643a029caaa4" },
   "mini.pairs": { "branch": "main", "commit": "b9aada8c0e59f2b938e98fbf4eae0799eba96ad9" },
   "mini.surround": { "branch": "main", "commit": "444e155147e2b5159dd28a65f9736254c16cb817" },
+  "minuet-ai.nvim": { "branch": "main", "commit": "e994d0ee275232ee375898e532a2e66213120912" },
   "neo-tree.nvim": { "branch": "main", "commit": "c4c168e459395275c552179a1baf9c3d885d6a74" },
   "neoconf.nvim": { "branch": "main", "commit": "8786f12ca22cdf2a022bbad1af3650e9f8d2613a" },
   "neogen": { "branch": "main", "commit": "d7f9461727751fb07f82011051338a9aba07581d" },
