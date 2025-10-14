@@ -11,6 +11,14 @@ return {
   },
   keys = {
     {
+      "<leader>ax",
+      function()
+        require("sidekick.cli").toggle({ name = "codex", focus = true })
+      end,
+      desc = "Sidekick Toggle Codex",
+    },
+
+    {
       "<tab>",
       function()
         -- if there is a next edit, jump to it, otherwise apply it if any
@@ -82,14 +90,6 @@ return {
         require("sidekick.cli").toggle({ name = "claude", focus = true })
       end,
       desc = "Sidekick Toggle Claude",
-    },
-
-    {
-      "<leader>ax",
-      function()
-        require("sidekick.cli").toggle({ name = "codex", focus = true })
-      end,
-      desc = "Sidekick Toggle Codex",
     },
   },
 }
