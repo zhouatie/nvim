@@ -1,4 +1,9 @@
 return {
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinLeave" },
+  },
   -- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 
   -- {
