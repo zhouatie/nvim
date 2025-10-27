@@ -33,7 +33,8 @@ return {
 
       -- 配置只使用 eslint_d 的工程名称（可以添加多个）
       local eslint_only_projects = {
-        "pc%-html", -- 使用 Lua 模式匹配，- 需要转义为 %-
+        "work",
+        -- "pc%-html", -- 使用 Lua 模式匹配，- 需要转义为 %-
         -- "other%-project",  -- 可以添加其他需要限制的工程
       }
 

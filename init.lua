@@ -11,5 +11,8 @@ vim.api.nvim_create_autocmd("SwapExists", {
 -- 设置 shortmess 选项来抑制 ATTENTION 消息
 vim.opt.shortmess:append("A")
 
+-- 禁用宏录制
+vim.keymap.set('n', 'q', '<nop>', { noremap = true })
+
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")

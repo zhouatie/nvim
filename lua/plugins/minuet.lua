@@ -11,16 +11,16 @@ return {
     "milanglacier/minuet-ai.nvim",
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
     config = function()
-      codemaker.proxy = codemaker.proxy or "http://127.0.0.1:8899"
+      -- codemaker.proxy = codemaker.proxy or "http://127.0.0.1:8899"
 
       if not codemaker.ensure_curl() then
-        vim.notify("CodeMaker token refresh skipped: plenary.curl not available", vim.log.levels.WARN)
+        -- vim.notify("CodeMaker token refresh skipped: plenary.curl not available", vim.log.levels.WARN)
       else
         local token, err = codemaker.refresh()
         if token then
-          vim.notify("CodeMaker token refresh succeeded", vim.log.levels.INFO)
+          -- vim.notify("CodeMaker token refresh succeeded", vim.log.levels.INFO)
         elseif err then
-          vim.notify("CodeMaker token refresh failed: " .. err, vim.log.levels.WARN)
+          -- vim.notify("CodeMaker token refresh failed: " .. err, vim.log.levels.WARN)
         end
       end
 
@@ -29,7 +29,7 @@ return {
         -- provider = "openai_compatible",
 
         -- proxy = "http://127.0.0.1:8899",
-        -- notify = "warn",
+        notify = false,
         n_completions = 1,
         -- context_window = 512,
         context_window = tokens(64),
