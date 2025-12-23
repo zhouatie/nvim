@@ -5,23 +5,6 @@ return {
     event = { "WinLeave" },
   },
 
-  {
-    "harrisoncramer/gitlab.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "stevearc/dressing.nvim", -- Recommended but not required. Better UI for pickers.
-      "nvim-tree/nvim-web-devicons", -- Recommended but not required. Icons in discussion tree.
-    },
-    build = function()
-      require("gitlab.server").build(true)
-    end, -- Builds the Go binary
-    config = function()
-      require("gitlab").setup()
-    end,
-  },
-
   -- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 
   -- {
@@ -180,22 +163,6 @@ return {
   --     legacy_computing_symbols_support = true,
   --   },
   -- },
-
-  --- git-blame git 行 提交信息
-  {
-    "f-person/git-blame.nvim",
-    event = "VeryLazy",
-    opts = {
-      enabled = true,
-      message_template = "<author> • <summary> • <date>", -- <summary> • <date> • <author> • <<sha>>
-      date_format = "%Y-%m-%d %H:%M:%S",
-      virtual_text_column = 1,
-    },
-    init = function()
-      vim.g.gitblame_message_when_not_committed = ""
-      vim.g.gitblame_delay = 1000
-    end,
-  },
 
   -- yazi
   {

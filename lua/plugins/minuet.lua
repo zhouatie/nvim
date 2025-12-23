@@ -10,6 +10,7 @@ return {
   {
     "milanglacier/minuet-ai.nvim",
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    enabled = false,
     config = function()
       -- codemaker.proxy = codemaker.proxy or "http://127.0.0.1:8899"
 

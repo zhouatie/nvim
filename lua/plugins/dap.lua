@@ -6,6 +6,13 @@ local js_based_languages = {
   "vue",
 }
 
+local react_native_languages = {
+  "typescript",
+  "javascript",
+  "typescriptreact",
+  "javascriptreact",
+}
+
 return {
   {
     "mfussenegger/nvim-dap",
@@ -180,6 +187,97 @@ return {
       -- 为所有支持前端调试的语言提供同样的 Chrome 配置
       for _, lang in ipairs({ "javascript", "typescript", "javascriptreact", "typescriptreact", "vue" }) do
         dap.configurations[lang] = vim.list_extend(dap.configurations[lang] or {}, chrome_debug_config)
+      end
+
+      -- React Native 调试配置
+      local react_native_debug_config = {
+        -- 连接到远程 iPhone 设备（推荐用于实际设备）
+        {
+          type = "pwa-chrome",
+          request = "attach",
+          name = "调试实体 iPhone 设备",
+          url = "http://localhost:8081/debugger-ui/",
+          webRoot = "${workspaceFolder}",
+          sourceMaps = true,
+          sourceMapPathOverrides = {
+            ["webpack:///./*"] = "${webRoot}/*",
+            ["webpack:///src/*"] = "${webRoot}/src/*",
+          },
+          skipFiles = { "<node_internals>/**" },
+        },
+        -- 启动 Metro Bundler
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "启动 Metro Bundler",
+          runtimeExecutable = "npm",
+          runtimeArgs = { "start" },
+          cwd = "${workspaceFolder}",
+          console = "integratedTerminal",
+          skipFiles = { "<node_internals>/**" },
+        },
+        -- 调试 iOS 模拟器
+        {
+          type = "pwa-chrome",
+          request = "attach",
+          name = "调试 iOS 模拟器",
+          url = "http://localhost:8081/debugger-ui/",
+          webRoot = "${workspaceFolder}",
+          sourceMaps = true,
+          sourceMapPathOverrides = {
+            ["webpack:///./*"] = "${webRoot}/*",
+            ["webpack:///src/*"] = "${webRoot}/src/*",
+          },
+          skipFiles = { "<node_internals>/**" },
+        },
+        -- 调试 Android 模拟器
+        {
+          type = "pwa-chrome",
+          request = "attach",
+          name = "调试 Android 模拟器",
+          url = "http://localhost:8081/debugger-ui/",
+          webRoot = "${workspaceFolder}",
+          sourceMaps = true,
+          sourceMapPathOverrides = {
+            ["metro:///./*"] = "${webRoot}/*",
+            ["metro:///src/*"] = "${webRoot}/src/*",
+            ["webpack:///./*"] = "${webRoot}/*",
+            ["webpack:///src/*"] = "${webRoot}/src/*",
+            ["webpack:///./src/*"] = "${webRoot}/src/*",
+          },
+          skipFiles = { "<node_internals>/**" },
+        },
+        -- 调试实体 Android 设备
+        {
+          type = "pwa-chrome",
+          request = "attach",
+          name = "调试实体 Android 设备",
+          url = "http://localhost:8081/debugger-ui/",
+          webRoot = "${workspaceFolder}",
+          sourceMaps = true,
+          sourceMapPathOverrides = {
+            ["metro:///./*"] = "${webRoot}/*",
+            ["metro:///src/*"] = "${webRoot}/src/*",
+            ["webpack:///./*"] = "${webRoot}/*",
+            ["webpack:///src/*"] = "${webRoot}/src/*",
+            ["webpack:///./src/*"] = "${webRoot}/src/*",
+          },
+          skipFiles = { "<node_internals>/**" },
+        },
+        -- 附加到运行中的应用（通用）
+        {
+          type = "pwa-node",
+          request = "attach",
+          name = "附加到运行中的应用",
+          processId = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+          skipFiles = { "<node_internals>/**" },
+        },
+      }
+
+      -- 为 JavaScript 和 TypeScript 相关语言添加 React Native 调试配置
+      for _, lang in ipairs(react_native_languages) do
+        dap.configurations[lang] = vim.list_extend(dap.configurations[lang] or {}, react_native_debug_config)
       end
     end,
   },

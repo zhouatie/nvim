@@ -68,6 +68,13 @@ return {
   --     desc = "Send File",
   --   },
   --   {
+  --     "<leader>aF",
+  --     function()
+  --       require("sidekick.cli").focus()
+  --     end,
+  --     desc = "focus",
+  --   },
+  --   {
   --     "<leader>av",
   --     function()
   --       require("sidekick.cli").send({ msg = "{selection}" })
@@ -90,6 +97,13 @@ return {
   --       require("sidekick.cli").toggle({ name = "claude", focus = true })
   --     end,
   --     desc = "Sidekick Toggle Claude",
+  --   },
+  --   {
+  --     "<leader>ao",
+  --     function()
+  --       require("sidekick.cli").toggle({ name = "opencode", focus = true })
+  --     end,
+  --     desc = "Sidekick Toggle Opencode",
   --   },
   -- },
 }

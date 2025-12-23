@@ -4,7 +4,7 @@ require("config.python_provider")
 -- 自动处理交换文件冲突
 vim.api.nvim_create_autocmd("SwapExists", {
   callback = function()
-    vim.v.swapchoice = "e"  -- 自动选择 "edit anyway"
+    vim.v.swapchoice = "e" -- 自动选择 "edit anyway"
   end,
 })
 
@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("SwapExists", {
 vim.opt.shortmess:append("A")
 
 -- 禁用宏录制
-vim.keymap.set('n', 'q', '<nop>', { noremap = true })
+vim.keymap.set("n", "q", "<nop>", { noremap = true })
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
