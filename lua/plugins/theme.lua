@@ -1,28 +1,28 @@
 return {
-  {
-    "rose-pine/neovim",
-    name = "rose-pine-moon",
-    config = function()
-      require("rose-pine").setup({
-        styles = {
-          transparency = true, -- 启用透明背景
-        },
-        highlight_groups = {
-          CursorLine = { bg = "base", blend = 10 },
-          Visual = { bg = "rose", blend = 20 }, -- 可视模式选中背景
-          VisualNOS = { bg = "rose", blend = 20 }, -- 非拥有选择的可视模式
-        },
-      })
-    end,
-  },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      -- colorscheme = "rose-pine-moon",
-      colorscheme = "rose-pine-moon",
-    },
-  },
+  -- {
+  --   "rose-pine/neovim",
+  --   name = "rose-pine-moon",
+  --   config = function()
+  --     require("rose-pine").setup({
+  --       styles = {
+  --         transparency = true, -- 启用透明背景
+  --       },
+  --       highlight_groups = {
+  --         CursorLine = { bg = "base", blend = 10 },
+  --         Visual = { bg = "rose", blend = 20 }, -- 可视模式选中背景
+  --         VisualNOS = { bg = "rose", blend = 20 }, -- 非拥有选择的可视模式
+  --       },
+  --     })
+  --   end,
+  -- },
+  --
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     -- colorscheme = "rose-pine-moon",
+  --     colorscheme = "rose-pine-moon",
+  --   },
+  -- },
 
   -- {
   --   "catppuccin/nvim",
@@ -44,10 +44,10 @@ return {
   --   lazy = false,
   --   priority = 1000,
   --   opts = {
-  --     transparent = true,
+  --     -- transparent = true,
   --     styles = {
-  --       sidebars = "transparent",
-  --       floats = "transparent",
+  --       -- sidebars = "transparent",
+  --       -- floats = "transparent",
   --     },
   --   },
   -- },
