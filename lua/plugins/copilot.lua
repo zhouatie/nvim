@@ -1,7 +1,6 @@
 return {
   -- {
   --   "zbirenbaum/copilot.lua",
-  --   enabled = false,
   --   opts = function(_, opts)
   --     opts.filetypes = {
   --       ["*"] = true,
