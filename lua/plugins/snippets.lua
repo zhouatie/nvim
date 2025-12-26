@@ -5,25 +5,25 @@ local gen_loader = require("mini.snippets").gen_loader
 -- 每个文件类型对应一个模式数组，支持灵活组合
 local lang_patterns = {
   typescript = {
-    "common.json",
+    "react-native.json",
     "typescript.json",
+    "javascriptreact.json",
+    "typescriptreact.json",
   },
   typescriptreact = {
-    "common.json",
+    "react-native.json",
     "typescript.json",
+    "javascriptreact.json",
+    "typescriptreact.json",
+  },
+  tsx = {
+    "react-native.json",
+    "typescript.json",
+    "javascriptreact.json",
     "typescriptreact.json",
   },
   markdown = {
-    "common.json",
-    "markdown_inline.json",
-  },
-  lua = {
-    "common.json",
-  },
-  tsx = {
-    "common.json",
-    "typescript.json",
-    "typescriptreact.json",
+    "markdown.json",
   },
   -- 可继续添加其他文件类型
 }
@@ -46,7 +46,7 @@ return {
         expand = "<C-j>",
         jump_next = "<C-l>",
         jump_prev = "<C-h>",
-        stop = "<C-c>",
+        stop = "<Esc>",
       },
 
       expand = {
