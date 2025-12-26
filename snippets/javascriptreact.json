@@ -6,7 +6,7 @@
             "\t$1",
             "}, [$2]);"
         ],
-        "desc": "useEffect 钩子（带依赖数组）"
+        "desc": "useEffect（带依赖数组）"
     },
     "useEffect Empty Deps": {
         "prefix": "ruee",
@@ -15,7 +15,7 @@
             "\t$1",
             "}, []);"
         ],
-        "desc": "useEffect 钩子（空依赖数组）"
+        "desc": "useEffect（空依赖数组）"
     },
     "useState Hook": {
         "prefix": "rust",

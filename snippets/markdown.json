@@ -89,8 +89,7 @@
     "Task List": {
         "prefix": "task",
         "body": [
-            "- [ ] ${1:task 1}",
-            "- [ ] ${2:task 2}"
+            "- [ ] ${1:task 1}"
         ],
         "desc": "任务列表"
     },

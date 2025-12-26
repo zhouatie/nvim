@@ -28,7 +28,7 @@
             "",
             "export default ${1:ScreenName};"
         ],
-        "desc": "React Native 屏幕组件模板"
+        "desc": "react native 页面组件模板"
     },
     "React Native View": {
         "prefix": "rnv",
@@ -37,12 +37,12 @@
             "\t$2",
             "</View>"
         ],
-        "desc": "React Native View 组件"
+        "desc": "react native View 组件"
     },
     "React Native Text": {
         "prefix": "rnt",
         "body": "<Text style={styles.${1:text}}>$2</Text>",
-        "desc": "React Native Text 组件"
+        "desc": "react native text 组件"
     },
     "React Native TouchableOpacity": {
         "prefix": "rntouch",
@@ -56,7 +56,7 @@
             "\t<Text>${3:Press me}</Text>",
             "</TouchableOpacity>"
         ],
-        "desc": "React Native 可触摸组件"
+        "desc": "react native touch组件"
     },
     "React Native FlatList": {
         "prefix": "rnlist",
@@ -71,7 +71,7 @@
             "\t)}",
             "/>"
         ],
-        "desc": "React Native FlatList 列表组件"
+        "desc": "react native FlatList 列表组件"
     },
     "React Native ScrollView": {
         "prefix": "rnscroll",
@@ -112,18 +112,6 @@
         "prefix": "rnst",
         "body": "const [${1:state}, set${1/(.)/\\u$1/}] = useState<${2:any}>(${3:null});",
         "desc": "React Native useState 钩子"
-    },
-    "React Native useEffect Hook": {
-        "prefix": "rnef",
-        "body": [
-            "useEffect(() => {",
-            "\t$1",
-            "\treturn () => {",
-            "\t\t$2",
-            "\t};",
-            "}, [$3]);"
-        ],
-        "desc": "React Native useEffect 钩子（含清理函数）"
     },
     "React Native Image": {
         "prefix": "rnimg",
@@ -168,28 +156,6 @@
         ],
         "desc": "React Native Modal 模态框"
     },
-    "React Native Alert": {
-        "prefix": "rnalert",
-        "body": [
-            "Alert.alert(",
-            "\t'${1:Title}',",
-            "\t'${2:Message}',",
-            "\t[",
-            "\t\t{",
-            "\t\t\ttext: '${3:Cancel}',",
-            "\t\t\tonPress: () => {},",
-            "\t\t},",
-            "\t\t{",
-            "\t\t\ttext: '${4:OK}',",
-            "\t\t\tonPress: () => {",
-            "\t\t\t\t$5",
-            "\t\t\t},",
-            "\t\t},",
-            "\t]",
-            ");"
-        ],
-        "desc": "React Native Alert 弹窗"
-    },
     "React Native Navigation Push": {
         "prefix": "rnnav",
         "body": [
@@ -198,10 +164,5 @@
             "});"
         ],
         "desc": "React Navigation 导航到屏幕"
-    },
-    "React Native useRoute Hook": {
-        "prefix": "rnroute",
-        "body": "const route = useRoute<RouteProp<RootStackParamList, '${1:ScreenName}'>>(); $2",
-        "desc": "React Native useRoute 钩子获取路由参数"
     }
 }
