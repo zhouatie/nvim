@@ -28,6 +28,9 @@ local lang_patterns = {
   markdown_inline = {
     "markdown.json",
   },
+  comment = {
+    "comment.json",
+  },
   -- 可继续添加其他文件类型
 }
 

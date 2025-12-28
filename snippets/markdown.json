@@ -94,8 +94,8 @@
         "desc": "任务列表"
     },
     "Work Hours": {
-        "prefix": "w",
-        "body": "[≈ ${1:hours}h]",
+        "prefix": "work",
+        "body": "[≈ ${1:time}]",
         "desc": "工时记录"
     }
 }

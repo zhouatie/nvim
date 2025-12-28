@@ -21,9 +21,9 @@ return {
       },
       providers = {
         aihubmix = {
-          model = "coding-glm-4.7-free",
+          -- model = "coding-glm-4.7-free",
           -- model = "glm-4.7",
-          -- model = "gemini-3-flash-preview",
+          model = "gemini-3-flash-preview",
           -- model = "gemini-3-pro-preview",
         },
       },
