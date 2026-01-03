@@ -25,6 +25,13 @@ local lang_patterns = {
     "javascriptreact.json",
     "typescriptreact.json",
   },
+  jsx = {
+    "javascript.json",
+    "react-native.json",
+    "typescript.json",
+    "javascriptreact.json",
+    "typescriptreact.json",
+  },
   markdown_inline = {
     "markdown.json",
   },
