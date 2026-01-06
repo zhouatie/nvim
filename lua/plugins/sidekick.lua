@@ -1,4 +1,16 @@
 return {
+
+  -- {
+  --   "folke/sidekick.nvim",
+  --   opts = {
+  --     nes = {
+  --       enabled = function(buf)
+  --         return false
+  --       end,
+  --     },
+  --   },
+  -- },
+
   -- "folke/sidekick.nvim",
   -- opts = {
   --   -- add any options here

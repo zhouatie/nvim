@@ -1,4 +1,40 @@
 return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      -- colorscheme = "rose-pine-moon",
+      colorscheme = "catppuccin",
+    },
+  },
+
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      transparent_background = true,
+    },
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin")
+    end,
+  },
+
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  -- },
+
   -- {
   --   "rose-pine/neovim",
   --   name = "rose-pine-moon",
@@ -16,39 +52,4 @@ return {
   --   end,
   -- },
   --
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     -- colorscheme = "rose-pine-moon",
-  --     colorscheme = "rose-pine-moon",
-  --   },
-  -- },
-
-  -- {
-  --   "catppuccin/nvim",
-  --   lazy = false,
-  --   name = "catppuccin",
-  --   priority = 1000,
-  --   opts = {
-  --     flavour = "mocha", -- latte, frappe, macchiato, mocha
-  --     transparent_background = true,
-  --   },
-  --   config = function(_, opts)
-  --     require("catppuccin").setup(opts)
-  --     vim.cmd.colorscheme("catppuccin")
-  --   end,
-  -- },
-
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {
-  --     transparent = true,
-  --     styles = {
-  --       sidebars = "transparent",
-  --       floats = "transparent",
-  --     },
-  --   },
-  -- },
 }
