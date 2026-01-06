@@ -17,17 +17,17 @@ return {
     end,
   },
 
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    cmd = "Neotree",
-    opts = {
-      window = {
-        mappings = {
-          ["o"] = "open",
-        },
-      },
-    },
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   cmd = "Neotree",
+  --   opts = {
+  --     window = {
+  --       mappings = {
+  --         ["o"] = "open",
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     "neovim/nvim-lspconfig",
