@@ -13,6 +13,61 @@ return {
         org_agenda_files = { "~/org/inbox.org", "~/org/gtd/**/*.org" },
         org_default_notes_file = "~/org/inbox.org",
 
+        org_todo_keywords = {
+          -- 1. 开发阶段
+          "TODO(t)", -- 待办：池子里的任务
+          "NEXT(n)", -- 计划：今天或马上要做的
+          "DOING(i)", -- 进行中：正在写代码 (In Progress)
+
+          -- 2. 阻塞与等待 (前端常见痛点)
+          "BLOCKED(b)", -- 阻塞：例如后端接口 500，或者 UI 图没给全
+          "WAITING(w)", -- 等待：例如等产品确认需求变更
+
+          -- 3. 验收与发布阶段
+          "VERIFY(v)", -- 验证：部署到测试环境，等 QA 或自己在测 (待验证)
+          "REVIEW(r)", -- 审查：已提 PR，等同事 Review
+          "RELEASE(p)", -- 发布：测试通过，等待上线窗口 (待发布/Pre-release)
+
+          "|", -- 分割线：左边是未完成，右边是已完成
+
+          -- 4. 结束状态
+          "DONE(d)", -- 完成
+          "DELEGATED(g)", -- 委派：甩锅给后端或者运维了
+          "CANCELLED(c)", -- 取消：需求砍了
+        },
+
+        org_todo_keyword_faces = {
+          -- 1. 开发阶段：暖色调，但不刺眼
+          -- 柔和的橘粉色，代替大红
+          TODO = ":foreground #D08770 :weight bold",
+          -- 奶酪黄/沙色，代替荧光黄
+          NEXT = ":foreground #EBCB8B :weight bold",
+          -- 雾霾蓝/灰蓝色，冷静专注，代替亮蓝
+          DOING = ":foreground #88C0D0 :weight bold",
+
+          -- 2. 阻塞与等待：偏紫/粉色系，起到提示作用但不过分抢眼
+          -- 干燥玫瑰色，用于阻塞
+          BLOCKED = ":foreground #BF616A :slant italic",
+          -- 薰衣草紫，用于等待
+          WAITING = ":foreground #B48EAD :slant italic",
+
+          -- 3. 验收与发布：清新的冷色调
+          -- 湖水绿/青色，代表接近完成
+          VERIFY = ":foreground #81A1C1",
+          REVIEW = ":foreground #8FBCBB",
+          -- 抹茶绿，代表蓄势待发
+          RELEASE = ":foreground #A3BE8C :weight bold",
+
+          "|", -- 分割线：左边是未完成，右边是已完成
+
+          -- 4. 结束状态：低调的颜色
+          -- 灰绿色，柔和的完成感
+          DONE = ":foreground #A3BE8C :weight bold",
+          -- 浅灰色，融入背景，不再干扰视线
+          DELEGATED = ":foreground #6E7582 :slant italic",
+          CANCELLED = ":foreground #6E7582 :slant italic",
+        },
+
         org_capture_templates = {
           -- 1. 任务流 (Tasks)
           t = {
@@ -20,11 +75,38 @@ return {
             template = "* TODO %?\n  SCHEDULED: %t\n",
             target = "~/org/inbox.org",
           },
+          d = {
+            description = "☀️ 晨间规划 (Daily Start)",
+            -- 目标文件
+            target = "~/org/gtd/%<%Y>/%<%m>/%<%Y-%m-%d>.org",
 
+            -- 模板内容详解：
+            -- 1. 标题自动带上 "Daily Log"
+            -- 2. 插入 properties 抽屉，方便后续统计（可选）
+            -- 3. **回顾昨日**：直接从 Agenda 复制过来，方便站会说 "Yesterday I did..."
+            -- 4. **今日计划**：列出今天要做的 Key Results
+            -- 5. **阻塞/风险**：前端常遇到的 API 延迟、设计变更等
+            -- 6. **暂存区**：白天遇到临时插进来的杂事，先扔这里
+            template = [[
+* Daily Log
+  :PROPERTIES:
+  :CATEGORY: Daily
+  :END:
+** 📋 昨日回顾 (Yesterday)
+
+** 🎯 今日核心目标 (Today)
+
+** 🚧 风险与阻塞 (Blockers)
+
+** 📥 Task
+
+** 📋 记录 (Record)
+]],
+          },
           -- 日记模板：实现 ~/org/gtd/年/月/年-月-日.org
           j = {
             description = "Daily Journal",
-            template = "\n* %<%H:%M> 记录\n%?",
+            template = "\n*** %<%H:%M> 记录\n%?",
             -- 关键：通过时间格式化构建深层目录
             -- %<%Y> 是年，%<%m> 是月，%<%Y-%m-%d> 是文件名
             target = "~/org/gtd/%<%Y>/%<%m>/%<%Y-%m-%d>.org",
