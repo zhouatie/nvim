@@ -13,6 +13,13 @@ return {
         org_agenda_files = { "~/org/inbox.org", "~/org/gtd/**/*.org" },
         org_default_notes_file = "~/org/inbox.org",
 
+        -- org_agenda_skip_deadline_if_done = true,
+        -- org_agenda_skip_scheduled_if_done = true,
+        org_agenda_sorting_strategy = {
+          agenda = { "todo-state-down", "time-up", "priority-down", "category-keep" },
+          todo = { "priority-down", "category-keep" },
+          tags = { "priority-down", "category-keep" },
+        },
         org_todo_keywords = {
           -- 1. 开发阶段
           "TODO(t)", -- 待办：池子里的任务
@@ -79,14 +86,6 @@ return {
             description = "☀️ 晨间规划 (Daily Start)",
             -- 目标文件
             target = "~/org/gtd/%<%Y>/%<%m>/%<%Y-%m-%d>.org",
-
-            -- 模板内容详解：
-            -- 1. 标题自动带上 "Daily Log"
-            -- 2. 插入 properties 抽屉，方便后续统计（可选）
-            -- 3. **回顾昨日**：直接从 Agenda 复制过来，方便站会说 "Yesterday I did..."
-            -- 4. **今日计划**：列出今天要做的 Key Results
-            -- 5. **阻塞/风险**：前端常遇到的 API 延迟、设计变更等
-            -- 6. **暂存区**：白天遇到临时插进来的杂事，先扔这里
             template = [[
 * Daily Log
   :PROPERTIES:
@@ -119,7 +118,13 @@ return {
             target = "~/org/inbox.org",
           },
         },
-        org_archive_location = "#+ARCHIVE: ~/org/archive/%s_archive::",
+        mappings = {
+          org = {
+            -- 将切换 Checkbox 的快捷键改为 <Leader>cc (或者你可以改成 <CR> 回车键)
+            org_toggle_checkbox = "<Leader>o<Space>",
+          },
+        },
+        -- org_archive_location = "#+ARCHIVE: ~/org/archive/%s_archive::",
       })
 
       require("org-bullets").setup()
@@ -180,6 +185,50 @@ return {
       },
     },
   },
+  -- {
+  --   "hamidi-dev/org-list.nvim",
+  --   dependencies = {
+  --     "tpope/vim-repeat", -- for repeatable actions with '.'
+  --   },
+  --   config = function()
+  --     require("org-list").setup({
+  --       mapping = {
+  --         key = "<leader>lt", -- nvim-orgmode users: you might want to change this to <leader>olt
+  --         desc = "Toggle: Cycle through list types",
+  --       },
+  --       checkbox_toggle = {
+  --         enabled = true,
+  --         -- NOTE: for nvim-orgmode users, you should change the following mapping OR change the one from orgmode.
+  --         -- If both mapping stay the same, the one from nvim-orgmode will "win"
+  --         key = "<C-1>",
+  --         desc = "Toggle checkbox state",
+  --         filetypes = { "org", "markdown" }, -- Add more filetypes as needed
+  --       },
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "massix/org-checkbox.nvim",
+  --   config = function()
+  --     require("orgcheckbox").setup()
+  --   end,
+  --   ft = { "org" },
+  -- },
+  -- {
+  --   "michhernand/RLDX.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {},
+  --   opts = {
+  --     filename = { os.getenv("HOME") .. "/.config/.rolodex/db.json" },
+  --   },
+  --   keys = {
+  --     { "<leader>Xa", "<cmd>RldxAdd<CR>" },
+  --     { "<leader>Xl", "<cmd>RldxLoad<CR>" },
+  --     { "<leader>Xs", "<cmd>RldxSave<CR>" },
+  --     { "<leader>Xd", "<cmd>RldxDelete<CR>" },
+  --     { "<leader>Xp", "<cmd>RldxProps<CR>" },
+  --   },
+  -- },
   -- {
   --   "hamidi-dev/org-super-agenda.nvim",
   --   dependencies = {

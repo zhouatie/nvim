@@ -4,6 +4,9 @@ local gen_loader = require("mini.snippets").gen_loader
 -- 文件类型和配置文件的映射关系
 -- 每个文件类型对应一个模式数组，支持灵活组合
 local lang_patterns = {
+  org = {
+    "org.json",
+  },
   typescript = {
     "javascript.json",
     "react-native.json",
