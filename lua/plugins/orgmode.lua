@@ -6,19 +6,40 @@ return {
       "nvim-orgmode/telescope-orgmode.nvim",
       "nvim-orgmode/org-bullets.nvim",
       "Saghen/blink.cmp",
+      "danilshvalov/org-modern.nvim",
     },
     event = "VeryLazy",
     config = function()
+      local Menu = require("org-modern.menu")
+
       require("orgmode").setup({
+        ui = {
+          menu = {
+            handler = function(data)
+              Menu:new({
+                window = {
+                  margin = { 1, 0, 1, 0 },
+                  padding = { 0, 1, 0, 1 },
+                  title_pos = "center",
+                  border = "single",
+                  zindex = 1000,
+                },
+                icons = {
+                  separator = "➜",
+                },
+              }):open(data)
+            end,
+          },
+        },
         org_agenda_files = { "~/org/inbox.org", "~/org/gtd/**/*.org" },
         org_default_notes_file = "~/org/inbox.org",
-
+        -- win_split_mode = "vertical",
         -- org_agenda_skip_deadline_if_done = true,
         -- org_agenda_skip_scheduled_if_done = true,
         org_agenda_sorting_strategy = {
           agenda = { "todo-state-down", "time-up", "priority-down", "category-keep" },
-          todo = { "priority-down", "category-keep" },
-          tags = { "priority-down", "category-keep" },
+          todo = { "todo-state-down", "priority-down", "category-keep" },
+          tags = { "todo-state-down", "priority-down", "category-keep" },
         },
         org_todo_keywords = {
           -- 1. 开发阶段
@@ -128,6 +149,7 @@ return {
       })
 
       require("org-bullets").setup()
+
       require("blink.cmp").setup({
         sources = {
           per_filetype = {
@@ -184,6 +206,25 @@ return {
         desc = "Search tags",
       },
     },
+  },
+  {
+    "chipsenkbeil/org-roam.nvim",
+    tag = "0.2.0",
+    ft = { "org" },
+    dependencies = {
+      {
+        "nvim-orgmode/orgmode",
+        tag = "0.7.0",
+      },
+    },
+    config = function()
+      require("org-roam").setup({
+        directory = "~/org/notes",
+        bindings = {
+          prefix = "<Leader>j",
+        },
+      })
+    end,
   },
   -- {
   --   "hamidi-dev/org-list.nvim",
