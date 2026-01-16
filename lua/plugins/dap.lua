@@ -16,6 +16,7 @@ local react_native_languages = {
 return {
   {
     "mfussenegger/nvim-dap",
+    ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
     dependencies = {
       "theHamsta/nvim-dap-virtual-text",
     },
