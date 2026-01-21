@@ -31,7 +31,7 @@ return {
             end,
           },
         },
-        org_agenda_files = { "~/org/inbox.org", "~/org/gtd/**/*.org" },
+        org_agenda_files = { "~/org/inbox.org", "~/org/gtd/**/*.org", "~/org/notes/**/*.org" },
         org_default_notes_file = "~/org/inbox.org",
         -- win_split_mode = "vertical",
         -- org_agenda_skip_deadline_if_done = true,
