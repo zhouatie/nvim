@@ -1,0 +1,31 @@
+lua/codemaker.lua
+  f31198fcc1184238 31,44,57
+lua/config/autocmds.lua
+  f31198fcc1184238 29
+lua/config/lazy.lua
+  f31198fcc1184238 3
+lua/plugins/treesitter.lua
+  f31198fcc1184238 38-39,41,43-46,51-77
+lua/config/keymaps.lua
+  f31198fcc1184238 170-172,175,185-188
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "44b6014e65edcf551eea7bc2612ba36ba2983a46",
+  "prompts": {
+    "f31198fcc1184238": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019d52e7-0f9d-7701-89e4-e164acbd2340",
+        "model": "gpt-5.4"
+      },
+      "human_author": "zhouatie",
+      "messages": [],
+      "total_additions": 49,
+      "total_deletions": 60,
+      "accepted_lines": 49,
+      "overriden_lines": 0
+    }
+  }
+}
