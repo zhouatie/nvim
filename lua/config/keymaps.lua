@@ -212,9 +212,12 @@ map({ "n", "x" }, "<leader>gB", function()
   Snacks.gitbrowse()
 end, { desc = "Git Browse (open)" })
 map({ "n", "x" }, "<leader>gY", function()
-  Snacks.gitbrowse({ open = function(url)
-    vim.fn.setreg("+", url)
-  end, notify = false })
+  Snacks.gitbrowse({
+    open = function(url)
+      vim.fn.setreg("+", url)
+    end,
+    notify = false,
+  })
 end, { desc = "Git Browse (copy)" })
 
 -- Quit
@@ -245,6 +248,9 @@ end, { desc = "which_key_ignore" })
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
+map("n", "<leader>wo", "<C-W>o", { desc = "Close Other Windows", remap = true })
+map("n", "<leader>wv", "<C-W>v", { desc = "Split Window Right", remap = true })
+map("n", "<leader>wh", "<C-W>h", { desc = "Split Window Below", remap = true })
 
 -- Tabs
 map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })

@@ -7,6 +7,9 @@ return {
       keymap = {
         preset = "default",
         ["<C-y>"] = { "select_and_accept" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
+        ["<S-Tab>"] = { "snippet_backward", "fallback" },
       },
       appearance = {
         use_nvim_cmp_as_default = false,

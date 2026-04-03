@@ -14,10 +14,10 @@ return {
         severity_sort = true,
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = " ",
-            [vim.diagnostic.severity.WARN] = " ",
-            [vim.diagnostic.severity.HINT] = " ",
-            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.ERROR] = "E",
+            [vim.diagnostic.severity.WARN] = "W",
+            [vim.diagnostic.severity.HINT] = "H",
+            [vim.diagnostic.severity.INFO] = "I",
           },
         },
       },
@@ -54,6 +54,10 @@ return {
       },
     },
     config = function(_, opts)
+      -- Disable LSP servers that conflict or are unwanted
+      vim.lsp.config("stylua", { enabled = false })
+      vim.lsp.config("vtsls", { enabled = false })
+
       -- Configure diagnostics
       vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
@@ -79,6 +83,18 @@ return {
           m("n", "<leader>cA", function()
             vim.lsp.buf.code_action({ context = { only = { "source" }, diagnostics = {} } })
           end, "Source Action")
+          m("n", "<leader>cM", function()
+            vim.lsp.buf.code_action({
+              context = { only = { "source.addMissingImports" }, diagnostics = {} },
+              apply = true,
+            })
+          end, "Add Missing Imports")
+          m("n", "<leader>cu", function()
+            vim.lsp.buf.code_action({
+              context = { only = { "source.removeUnused" }, diagnostics = {} },
+              apply = true,
+            })
+          end, "Remove Unused Imports")
         end,
       })
 
@@ -107,9 +123,7 @@ return {
 
       if have_mason then
         mlsp.setup({
-          ensure_installed = vim.tbl_filter(function(s)
-            return s ~= "eslint"
-          end, all_servers),
+          ensure_installed = all_servers,
           handlers = { setup },
         })
       else
