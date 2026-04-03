@@ -28,7 +28,7 @@ local function ensure_random_seed()
     return
   end
 
-  local seed = vim.loop.hrtime() % 0x7fffffff
+  local seed = vim.uv.hrtime() % 0x7fffffff
   math.randomseed(seed)
   math.random()
   math.random()
@@ -41,8 +41,7 @@ local function json_decode_safe(payload)
     return nil
   end
 
-  local decode = vim.json and vim.json.decode or vim.fn.json_decode
-  local ok, result = pcall(decode, payload)
+  local ok, result = pcall(vim.json.decode, payload)
   if not ok then
     return nil
   end
@@ -55,8 +54,7 @@ local function json_encode_safe(payload)
     return payload
   end
 
-  local encode = vim.json and vim.json.encode or vim.fn.json_encode
-  local ok, result = pcall(encode, payload)
+  local ok, result = pcall(vim.json.encode, payload)
   if not ok then
     return nil
   end

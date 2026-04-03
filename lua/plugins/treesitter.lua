@@ -15,7 +15,6 @@ return {
         "javascript",
         "jsdoc",
         "json",
-        "jsonc",
         "lua",
         "luadoc",
         "luap",
@@ -36,10 +35,46 @@ return {
         "yaml",
       })
 
+      local ts_group = vim.api.nvim_create_augroup("config_treesitter", { clear = true })
+
       vim.api.nvim_create_autocmd("FileType", {
+        group = ts_group,
         callback = function()
+          if vim.bo.buftype ~= "" then
+            return
+          end
+
           pcall(vim.treesitter.start)
           vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
+
+      -- Some openers display an existing buffer before filetype detection runs.
+      -- Detect filetype or start highlighting here as a fallback.
+      vim.api.nvim_create_autocmd("BufWinEnter", {
+        group = ts_group,
+        callback = function(event)
+          local buf = event.buf
+          if vim.bo[buf].buftype ~= "" then
+            return
+          end
+
+          if vim.bo[buf].filetype == "" then
+            vim.cmd("filetype detect")
+            return
+          end
+
+          vim.schedule(function()
+            if not vim.api.nvim_buf_is_valid(buf) then
+              return
+            end
+
+            if vim.treesitter.highlighter.active[buf] then
+              return
+            end
+
+            pcall(vim.treesitter.start, buf)
+          end)
         end,
       })
     end,

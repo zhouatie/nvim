@@ -167,11 +167,12 @@ map("n", "<leader>uA", function()
   vim.notify("Tabline: " .. (vim.opt.showtabline:get() > 0 and "on" or "off"))
 end, { desc = "Toggle Tabline" })
 map("n", "<leader>uT", function()
-  if vim.b.ts_highlight then
-    vim.treesitter.stop()
+  local buf = vim.api.nvim_get_current_buf()
+  if vim.treesitter.highlighter.active[buf] then
+    vim.treesitter.stop(buf)
     vim.notify("Treesitter: off")
   else
-    vim.treesitter.start()
+    vim.treesitter.start(buf)
     vim.notify("Treesitter: on")
   end
 end, { desc = "Toggle Treesitter" })
@@ -181,12 +182,10 @@ map("n", "<leader>ub", function()
   vim.notify("Background: " .. vim.opt.background:get())
 end, { desc = "Toggle Dark Background" })
 
-if vim.lsp.inlay_hint then
-  map("n", "<leader>uh", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    vim.notify("Inlay Hints: " .. (vim.lsp.inlay_hint.is_enabled() and "on" or "off"))
-  end, { desc = "Toggle Inlay Hints" })
-end
+map("n", "<leader>uh", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  vim.notify("Inlay Hints: " .. (vim.lsp.inlay_hint.is_enabled() and "on" or "off"))
+end, { desc = "Toggle Inlay Hints" })
 
 -- Lazygit
 if vim.fn.executable("lazygit") == 1 then

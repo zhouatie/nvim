@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   callback = function()
-    (vim.hl or vim.highlight).on_yank()
+    vim.hl.on_yank()
   end,
 })
 
@@ -120,49 +120,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "json", "jsonc", "json5" },
   callback = function()
     vim.opt_local.conceallevel = 0
-  end,
-})
-
--- Ensure treesitter highlighting is active after buffer is displayed.
--- Fixes missing syntax highlighting when opening files via Snacks picker
--- (e.g. <leader>fr), where bufadd + buffer command may skip filetype
--- detection or treesitter attachment.
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = augroup("ensure_treesitter_hl"),
-  callback = function(event)
-    local buf = event.buf
-    -- Skip special buffers
-    local bt = vim.bo[buf].buftype
-    if bt ~= "" then
-      return
-    end
-    -- If filetype is empty, try to detect it
-    if vim.bo[buf].filetype == "" then
-      vim.cmd("filetype detect")
-    end
-    -- If treesitter highlighting isn't active but a parser exists, start it
-    vim.schedule(function()
-      if not vim.api.nvim_buf_is_valid(buf) then
-        return
-      end
-      local ft = vim.bo[buf].filetype
-      if ft == "" then
-        return
-      end
-      -- Check if treesitter highlighting is already active
-      local ok = pcall(vim.treesitter.get_parser, buf)
-      if ok and not vim.b[buf]._ts_hl_ensured then
-        local is_active = false
-        -- Check if highlight is already running by looking at active highlighters
-        if vim.treesitter.highlighter and vim.treesitter.highlighter.active[buf] then
-          is_active = true
-        end
-        if not is_active then
-          pcall(vim.treesitter.start, buf)
-        end
-        vim.b[buf]._ts_hl_ensured = true
-      end
-    end)
   end,
 })
 
