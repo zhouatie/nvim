@@ -1,0 +1,58 @@
+lua/plugins/completion.lua
+  53d7f677a2dfbc00 10-12
+lazy-lock.json
+  53d7f677a2dfbc00 20,25,29-30,39-40
+  12cca0ea81bf14d5 5,8,10,33,49
+lua/config/keymaps.lua
+  53d7f677a2dfbc00 215-220,251-253
+lua/plugins/treesitter.lua
+  ca4edf8ac1dad7e3 4,8-9,37-71
+lua/plugins/lsp.lua
+  53d7f677a2dfbc00 17-20,57-60,86-97,126
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "39e2fb3cd3fe636768ca0ddcbc8265039429fa93",
+  "prompts": {
+    "12cca0ea81bf14d5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019d52b3-72bc-79a1-8e30-5ba1b97bbcb8",
+        "model": "gpt-5.4"
+      },
+      "human_author": "zhouatie",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 5,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    },
+    "53d7f677a2dfbc00": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019d5293-9360-7200-8bf6-6c33decaebb5",
+        "model": "gpt-5.4"
+      },
+      "human_author": "zhouatie",
+      "messages": [],
+      "total_additions": 45,
+      "total_deletions": 22,
+      "accepted_lines": 39,
+      "overriden_lines": 1
+    },
+    "ca4edf8ac1dad7e3": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_2ad366551ffeNfY80i78X1KfR8",
+        "model": "unknown"
+      },
+      "human_author": "zhouatie",
+      "messages": [],
+      "total_additions": 38,
+      "total_deletions": 34,
+      "accepted_lines": 38,
+      "overriden_lines": 0
+    }
+  }
+}
